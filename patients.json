@@ -1,0 +1,82 @@
+{
+    "patients": [
+        {
+            "name": "S.Meena",
+            "gender": "F",
+            "age": 23,
+            "patientId": "87 20200727153457",
+            "goalReached": "40%",
+            "phone": "8022334455",
+            "email": "meenarabinsachin2@gmail.com",
+            "affectedSide": "Bilateral",
+            "condition": "Ortho",
+            "speciality": "Osteoarthritis",
+            "medicalHistory": "Hypertension, DM, Hypothyroidism"
+        },
+        {
+            "name": "R.Kumar",
+            "gender": "M",
+            "age": 45,
+            "patientId": "92 20180627123412",
+            "goalReached": "65%",
+            "phone": "8033445566",
+            "email": "rkumar@example.com",
+            "affectedSide": "Right",
+            "condition": "Neuro",
+            "speciality": "Stroke",
+            "medicalHistory": "Hypertension, Hyperlipidemia"
+        },
+        {
+            "name": "A.Patel",
+            "gender": "M",
+            "age": 60,
+            "patientId": "88 20190512194523",
+            "goalReached": "30%",
+            "phone": "8044556677",
+            "email": "apatel@example.com",
+            "affectedSide": "Left",
+            "condition": "Cardio",
+            "speciality": "Heart Failure",
+            "medicalHistory": "Diabetes, Hypertension, CAD"
+        },
+        {
+            "name": "L.Singh",
+            "gender": "F",
+            "age": 34,
+            "patientId": "95 20191218121745",
+            "goalReached": "50%",
+            "phone": "8055667788",
+            "email": "lsingh@example.com",
+            "affectedSide": "Bilateral",
+            "condition": "Ortho",
+            "speciality": "Rheumatoid Arthritis",
+            "medicalHistory": "Asthma, Hypothyroidism"
+        },
+        {
+            "name": "M.Khan",
+            "gender": "M",
+            "age": 28,
+            "patientId": "90 20210214123045",
+            "goalReached": "75%",
+            "phone": "8066778899",
+            "email": "mkhan@example.com",
+            "affectedSide": "Right",
+            "condition": "Neuro",
+            "speciality": "Parkinson's Disease",
+            "medicalHistory": "Hypertension"
+        },
+        {
+            "name": "P.Rao",
+            "gender": "F",
+            "age": 52,
+            "patientId": "93 20180401112233",
+            "goalReached": "55%",
+            "phone": "8077889900",
+            "email": "prao@example.com",
+            "affectedSide": "Left",
+            "condition": "Cardio",
+            "speciality": "Coronary Artery Disease",
+            "medicalHistory": "Diabetes, Hypertension"
+        }
+    ]
+}

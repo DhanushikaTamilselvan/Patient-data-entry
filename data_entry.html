@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Patient Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://d2jx2rerrg6sh3.cloudfront.net/image-handler/picture/2017/8/Doctor_and_patient_680x_-_Syda_Productions.jpg') no-repeat center center fixed;
+            background-size: cover;
+            backdrop-filter: blur(8px);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #003366;
+        }
+        .input-group input[type="text"],
+        .input-group input[type="tel"],
+        .input-group input[type="number"]
+         {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .input-group input[type="radio"] {
+            margin-right: 10px;
+        }
+        .input-group input[type="radio"] + label {
+            margin-right: 20px;
+            font-weight: normal;
+            color: #003366;
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #002244;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Patient Data</h2>
+        <form id="patientForm">
+            <div class="input-group">
+                <label>Patient ID</label>
+                <input type="number" id="patientId" required>
+            </div>
+            <div class="input-group">
+                <label>Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="input-group">
+                <label>Gender</label><br>
+                <input type="radio" id="male" name="gender" value="male">Male
+                <label for="male"></label>
+                <input type="radio" id="female" name="gender" value="female">Female
+                <label for="female"></label>
+                <input type="radio" id="other" name="gender" value="other">Other
+                <label for="other"></label>
+            </div>
+            <div class="input-group">
+                <label>Age</label>
+                <input type="number" id="age" required>
+            </div>
+            <div class="input-group">
+                <label>Goal</label>
+                <input type="number" id="goal" required>
+            </div>
+            <div class="input-group">
+                <label>Phone number</label>
+                <input type="tel" id="phoneno" required>
+            </div>
+            <div class="input-group">
+                <label>Mail id</label>
+                <input type="text" id="mailid" required>
+            </div>
+            <div class="input-group">
+                <label>Affected side</label>
+                <input type="text" id="affectedside" required>
+            </div>
+            <div class="input-group">
+                <label>Condition</label>
+                <input type="text" id="condition" required>
+            </div>
+            <div class="input-group">
+                <label>Speciality</label>
+                <input type="text" id="speciality" required>
+            </div>
+            <div class="input-group">
+                <label>Medical history</label>
+                <input type="text" id="medical-history" required>
+            </div>
+            <button type="submit">Save Patient Data</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('patientForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const patientId = document.getElementById('patientId').value;
+            const name = document.getElementById('name').value;
+            const gender = document.querySelector('input[name="gender"]:checked')?.value || 'Not specified';
+            const age = document.getElementById('age').value;
+            const goal = document.getElementById('goal').value;
+            const phoneno = document.getElementById('phoneno').value;
+            const mailid = document.getElementById('mailid').value;
+            const affectedside = document.getElementById('affectedside').value;
+            const condition = document.getElementById('condition').value;
+            const speciality = document.getElementById('speciality').value;
+            const medical_history = document.getElementById('medical-history').value;
+
+            const patientData = {
+                patientId: patientId,
+                name: name,
+                gender: gender,
+                age: age,
+                goal: goal,
+                phoneno: phoneno,
+                mailid: mailid,
+                affectedside: affectedside,
+                condition: condition,
+                speciality: speciality,
+                medical_history: medical_history
+            };
+
+            localStorage.setItem('currentPatient', JSON.stringify(patientData));
+            alert('Patient data saved!');
+            window.location.href = "index.html"; // Redirect to view patient page
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+.profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .profile-header {
+    text-align: center;
+  }
+  
+  .profile-pic {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .contact-info, .medical-details, .goal-progress {
+    margin-top: 20px;
+  }
+  
+  .semi-circle {
+    width: 100px;
+    height: 50px;
+    background-color: #76C7C0;
+    border-radius: 100px 100px 0 0;
+    text-align: center;
+    padding-top: 10px;
+    position: relative;
+  }
+  
+  .semi-circle span {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+  }
+  
