@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Patient</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <section class="patient"></section>
+        <header class="header">
+            <div class="back-button" id="back-button">&larr;</div>
+            <section class="patients-info">
+                <h1>View patient</h1>
+            </section>
+        <section class="patients"></section>
+        </header>
+        <section id="patient-info" class="patient-info">
+            <div class="profile-details">
+                <h2 id="patient-name">Loading...</h2>
+                <p id="patient-id"></p>
+            </div>
+            <div class="profile-icon">&#128100;</div>
+        </section>
+        <section class="goal">
+            <h3>Goal reached</h3>
+            <div class="goal-meter">
+                <div class="semi-circle-gauge">
+                    <div class="gauge-background"></div>
+                    <div class="gauge-fill"></div>
+                    <div class="gauge-cover" id="goal-reached">0%</div>
+                </div>
+                <div class="goal-details">
+                    <div class="goal-item">
+                        <p>EMG</p>
+                        <div class="graph emg"></div>
+                    </div>
+                    <div class="goal-item">
+                        <p>ROM</p>
+                        <div class="graph rom"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="contact-details">
+            <p><strong>Phone no. </strong> <a id="phone-number" href="#">Loading...</a></p>
+            <p><strong>Mail ID </strong> <a id="email" href="#">Loading...</a></p>
+            <p><strong>Affected side </strong> <span id="affected-side"></span></p>
+            <p><strong>Condition </strong> <span id="condition"></span></p>
+            <p><strong>Speciality </strong> <span id="speciality"></span></p>
+        </section>
+        <section class="medical-history">
+            <p><strong>Medical history </strong> <span id="medical-history"></span></p>
+        </section>
+        
+    </div>
+
+    <script>
+        // Fetch patient data from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const patientData = JSON.parse(localStorage.getItem('currentPatient'));
+
+            if (patientData) {
+                document.getElementById('patient-name').textContent = `${patientData.name}, ${patientData.age}/${patientData.gender}`;
+                document.getElementById('patient-id').textContent = `Patient ID: ${patientData.patientId}`;
+                document.getElementById('goal-reached').textContent = patientData.goal;
+                document.getElementById('phone-number').textContent = patientData.phoneno;
+                document.getElementById('phone-number').href = `tel:${patientData.phoneno}`;
+                document.getElementById('email').textContent = patientData.mailid;
+                document.getElementById('email').href = `mailto:${patientData.mailid}`;
+                document.getElementById('affected-side').textContent = patientData.affectedside;
+                document.getElementById('condition').textContent = patientData.condition;
+                document.getElementById('speciality').textContent = patientData.speciality;
+                document.getElementById('medical-history').textContent = patientData.medical_history;
+            } else {
+                alert('No patient data found. Please enter patient data.');
+                window.location.href = "data_entry.html"; // Redirect back to data entry page
+            }
+        });
+
+        // Add event listener to back button
+        document.getElementById('back-button').addEventListener('click', function() {
+            window.location.href = 'data_entry.html';
+        });
+    </script>
+</body>
+</html>
+

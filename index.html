@@ -3,88 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Patient</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="container">
-        <section class="patient"></section>
-        <header class="header">
-            <div class="back-button" id="back-button">&larr;</div>
-            <section class="patients-info">
-                <h1>View patient</h1>
-            </section>
-        <section class="patients"></section>
-        </header>
-        <section id="patient-info" class="patient-info">
-            <div class="profile-details">
-                <h2 id="patient-name">Loading...</h2>
-                <p id="patient-id"></p>
-            </div>
-            <div class="profile-icon">&#128100;</div>
-        </section>
-        <section class="goal">
-            <h3>Goal reached</h3>
-            <div class="goal-meter">
-                <div class="semi-circle-gauge">
-                    <div class="gauge-background"></div>
-                    <div class="gauge-fill"></div>
-                    <div class="gauge-cover" id="goal-reached">0%</div>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="text" id="username" required>
+                    <label>Username</label>
                 </div>
-                <div class="goal-details">
-                    <div class="goal-item">
-                        <p>EMG</p>
-                        <div class="graph emg"></div>
-                    </div>
-                    <div class="goal-item">
-                        <p>ROM</p>
-                        <div class="graph rom"></div>
-                    </div>
+                <div class="input-group">
+                    <input type="password" id="password" required>
+                    <label>Password</label>
                 </div>
-            </div>
-        </section>
-        
-        <section class="contact-details">
-            <p><strong>Phone no. </strong> <a id="phone-number" href="#">Loading...</a></p>
-            <p><strong>Mail ID </strong> <a id="email" href="#">Loading...</a></p>
-            <p><strong>Affected side </strong> <span id="affected-side"></span></p>
-            <p><strong>Condition </strong> <span id="condition"></span></p>
-            <p><strong>Speciality </strong> <span id="speciality"></span></p>
-        </section>
-        <section class="medical-history">
-            <p><strong>Medical history </strong> <span id="medical-history"></span></p>
-        </section>
-        
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+        </div>
     </div>
 
     <script>
-        // Fetch patient data from localStorage
-        document.addEventListener('DOMContentLoaded', function() {
-            const patientData = JSON.parse(localStorage.getItem('currentPatient'));
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-            if (patientData) {
-                document.getElementById('patient-name').textContent = `${patientData.name}, ${patientData.age}/${patientData.gender}`;
-                document.getElementById('patient-id').textContent = `Patient ID: ${patientData.patientId}`;
-                document.getElementById('goal-reached').textContent = patientData.goal;
-                document.getElementById('phone-number').textContent = patientData.phoneno;
-                document.getElementById('phone-number').href = `tel:${patientData.phoneno}`;
-                document.getElementById('email').textContent = patientData.mailid;
-                document.getElementById('email').href = `mailto:${patientData.mailid}`;
-                document.getElementById('affected-side').textContent = patientData.affectedside;
-                document.getElementById('condition').textContent = patientData.condition;
-                document.getElementById('speciality').textContent = patientData.speciality;
-                document.getElementById('medical-history').textContent = patientData.medical_history;
+            // Check credentials (simplified)
+            if (username === "dhanushika" && password === "Dhanu@2003") {
+                localStorage.setItem('loggedInUser', username);
+                window.location.href = "data_entry.html";
             } else {
-                alert('No patient data found. Please enter patient data.');
-                window.location.href = "data_entry.html"; // Redirect back to data entry page
+                alert("Invalid credentials. Please try again.");
             }
-        });
-
-        // Add event listener to back button
-        document.getElementById('back-button').addEventListener('click', function() {
-            window.location.href = 'data_entry.html';
         });
     </script>
 </body>
 </html>
-
