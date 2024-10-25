@@ -23,26 +23,7 @@
             </div>
             <div class="profile-icon">&#128100;</div>
         </section>
-        <section class="goal">
-            <h3>Goal reached</h3>
-            <div class="goal-meter">
-                <div class="semi-circle-gauge">
-                    <div class="gauge-background"></div>
-                    <div class="gauge-fill"></div>
-                    <div class="gauge-cover" id="goal-reached">0%</div>
-                </div>
-                <div class="goal-details">
-                    <div class="goal-item">
-                        <p>EMG</p>
-                        <div class="graph emg"></div>
-                    </div>
-                    <div class="goal-item">
-                        <p>ROM</p>
-                        <div class="graph rom"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
         
         <section class="contact-details">
             <p><strong>Phone no. </strong> <a id="phone-number" href="#">Loading...</a></p>
@@ -65,7 +46,7 @@
             if (patientData) {
                 document.getElementById('patient-name').textContent = `${patientData.name}, ${patientData.age}/${patientData.gender}`;
                 document.getElementById('patient-id').textContent = `Patient ID: ${patientData.patientId}`;
-                document.getElementById('goal-reached').textContent = patientData.goal;
+               
                 document.getElementById('phone-number').textContent = patientData.phoneno;
                 document.getElementById('phone-number').href = `tel:${patientData.phoneno}`;
                 document.getElementById('email').textContent = patientData.mailid;
